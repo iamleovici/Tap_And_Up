@@ -26,19 +26,14 @@ public class PlatformController : MonoBehaviour
         float offsetPositionY = UnityEngine.Random.Range(3f, 6f);
         float randomScale = UnityEngine.Random.Range(0.3f, 1.5f);
 
-
         Vector3 spawnPosition = new Vector3(platformPositionX * SideOfPlatform, newPlatform.transform.position.y - offsetPositionY, 0f);
         GameObject platform = Instantiate(platformPrefab, spawnPosition, Quaternion.identity, transform);
         platform.transform.localScale = new Vector3(randomScale, platform.transform.localScale.y, platform.transform.localScale.z);
         newPlatform = platform;
         platformColor = newPlatform.GetComponent<Renderer>();
 
-
         SideOfPlatform = -SideOfPlatform;
-
-
     }
-
 
     public void platformWasTouched()
     {
@@ -46,7 +41,6 @@ public class PlatformController : MonoBehaviour
         platformColor.material.color = Color.red;
         Destroy(newPlatform, 5f);
         SpawnPlatform();
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -54,7 +48,6 @@ public class PlatformController : MonoBehaviour
         {
             onTouch?.Invoke();
             platformWasTouched();
-
         }
     }
 }

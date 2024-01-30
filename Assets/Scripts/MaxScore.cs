@@ -11,7 +11,6 @@ public class MaxScore : MonoBehaviour
         Load();
     }
 
-
     void Update()
     {
         if (score.score > maxScore)
@@ -20,7 +19,6 @@ public class MaxScore : MonoBehaviour
             Save();
         }
     }
-
 
     public void ResetMaxScore()
     {
@@ -38,5 +36,4 @@ public class MaxScore : MonoBehaviour
         maxScore = PlayerPrefs.GetInt("MaxScore", 0);
         text.text = $"MAX SCORE\n{maxScore}";
     }
-
 }

@@ -8,7 +8,6 @@ public class CameraFollow : MonoBehaviour
     public float speed = 0.015f;
     public float offset = -3f;
 
-
     private void LateUpdate()
     {
         UpdatePosition();
@@ -18,9 +17,8 @@ public class CameraFollow : MonoBehaviour
         if (playerBody != null)
         {
             targetPosition = new Vector3(0f, playerBody.position.y + offset, -10f);
-            newPosition = Vector3.Lerp(transform.position, targetPosition, speed);
+            newPosition = Vector3.Lerp(transform.position, targetPosition, speed*Time.deltaTime);
             transform.position = newPosition;
-
         }
     }
 }
